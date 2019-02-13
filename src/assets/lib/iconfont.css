@@ -1,0 +1,85 @@
+@font-face {
+  font-family: sk-icons;
+  src: url(fonts/iconfont.woff) format("woff"),url("fonts/iconfont.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+[class*=" sk-icon-"], [class^=sk-icon-] {
+  font-family: sk-icons !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.sk-icon-home:before{
+  content:"\e603"
+}
+
+.sk-icon-device:before {
+  content: "\e604";
+}
+
+.sk-icon-battery:before{
+  content:"\e605"
+}
+
+.sk-icon-localplay:before{
+  content:"\e606"
+}
+
+.sk-icon-netplay:before{
+  content:"\e607"
+}
+
+.sk-icon-poweroff:before{
+  content:"\e608"
+}
+
+.sk-icon-reboot:before{
+  content:"\e609"
+}
+
+.sk-icon-return:before{
+  content: "\e613"
+}
+
+.sk-icon-signal_wifi0:before{
+  content:"\e614"
+}
+
+.sk-icon-signal_wifi1:before{
+  content:"\e615"
+}
+
+.sk-icon-signal_wifi2:before{
+  content:"\e616"
+}
+
+.sk-icon-signal_wifi3:before{
+  content:"\e617"
+}
+
+.sk-icon-signal_wifi4:before{
+  content:"\e618"
+}
+
+.sk-icon-netreturn:before{
+  content:"\e61a"
+}
+
+
+
+
+
+
+
+
+

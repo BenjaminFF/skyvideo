@@ -1,0 +1,39 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(l-tag) {
+  border: 1px solid #979797;
+  border-radius: 2rem;
+  width: fit-content;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: #979797;
+  margin-top: 0.1rem;
+  @include e(icon) {
+    padding: 0rem;
+    font-size: 0.5rem;
+  }
+
+  &:hover{
+    border: 1px solid #0053AF;
+    color: #0053AF;
+  }
+}
+
+@include b(l-playCount) {
+  border: 1px solid #979797;
+  border-radius: 2rem;
+  width: fit-content;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: #979797;
+  margin-top: 0.1rem;
+  @include e(icon) {
+    padding: 0rem;
+    font-size: 0.5rem;
+  }
+}
