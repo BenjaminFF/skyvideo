@@ -8,7 +8,7 @@
           <ef-list :orientation="'horizontal'" :wrap-width="'100%'" style="width: 100%;height: 100%" ref="EfResList"
                    :wrap-height="'100%'" :list="item.resources" v-on:thumbVisible="thumbVisible(item,$event)" v-on:handleScrollRight="handleScrollRight(item)">
             <div v-for="resource in item.resources" class="l-row__res-container">
-              <img :src="resource.Icon!=null?resource.Icon.Uri:require('../assets/ic_resource_default.png')" class="l-row__resourcePoster">
+              <img :src="resource.Icon!=null?resource.Icon.Uri:require('../assets/ic_resource_default.png')" class="l-row__resourcePoster" @click="enterVideo(resource.Id)">
               <div class="l-row__resourceName">{{resource.Name.length>20?resource.Name.substring(0,20)+'...':resource.Name}}</div>
             </div>
           </ef-list>
@@ -45,7 +45,7 @@
     mounted(){
       setTimeout(()=>{
         this.$refs.EfItemList.updateScrollbar();
-      },200);
+      },300);
     },
     methods: {
       async fetchData() {
@@ -73,10 +73,10 @@
             })
           });
           if(rowCount++>=3){
-            this.curBottomItemIndex=3;
             break;
           }
         }
+        this.curBottomItemIndex=rowCount-1;
         this.items = items;
       },
       async handleScrollBottom() {

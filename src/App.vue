@@ -20,7 +20,7 @@
       <el-row class="main-content-header">
         <el-col :span="4">{{title}}</el-col>
         <el-col :span="8" :offset="14" class="category-input">
-          <el-input class="main-content-input" suffix-icon="el-icon-search"></el-input>
+          <el-input class="main-content-input" suffix-icon="skyvideo sv-sousuo"></el-input>
         </el-col>
       </el-row>
       <router-view></router-view>
@@ -103,7 +103,7 @@
                 this.title=tag.Name;
               }
             });
-            this.initOptions();
+            //this.initOptions();
           });
         }else {
           this.title=this.$route.name;
@@ -148,7 +148,7 @@
 </script>
 
 <style>
-
+  @import "../node_modules/video.js/dist/video-js.css";
   body, html {
     width: 100%;
     height: 100%;
@@ -189,5 +189,9 @@
     border: none;
     font-size: 1.2rem;
     text-indent: 5px;
+  }
+
+  .el-input__suffix{
+    margin-right: 0.5rem !important;
   }
 </style>

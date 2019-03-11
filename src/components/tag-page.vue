@@ -3,7 +3,7 @@
     <ef-list ref="EfItemList" :list="items" style="width: 100%;height: 100%;" :wrap-height="'100%'" v-on:handleScrollBottom="handleScrollBottom">
       <div style="width: 90%;margin-left: 5%;display: flex;" v-for="row in items">
         <div v-for="resource in row" style="width: 19%;margin-right: 1%;">
-          <img :src="resource.Icon!=null?resource.Icon.Uri:require('../assets/ic_resource_default.png')" class="l-row__resourcePoster" style="width: 100%;">
+          <img :src="resource.Icon!=null?resource.Icon.Uri:require('../assets/ic_resource_default.png')" class="l-row__resourcePoster" style="width: 100%;" @click="enterVideo(resource.Id)">
           <div class="l-row__resourceName">{{resource.Name.length>20?resource.Name.substring(0,20)+'...':resource.Name}}</div>
         </div>
       </div>

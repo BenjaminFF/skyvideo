@@ -10,7 +10,7 @@
                    v-on:handleScrollRight="handleScrollRight(item)">
             <div v-for="resource in item.resources" class="l-row__res-container">
               <img :src="resource.Icon!=null?resource.Icon.Uri:require('../assets/ic_resource_default.png')"
-                   class="l-row__resourcePoster">
+                   class="l-row__resourcePoster" @click="enterVideo(resource.Id)">
               <div class="l-row__resourceName">{{resource.Name.length>20?resource.Name.substring(0,20)+'...':resource.Name}}</div>
             </div>
           </ef-list>
@@ -19,7 +19,7 @@
           <i class="skyvideo sv-next l-row__rightIcon" @click="turnRight(index)"
              v-if="item.thumbVisible&&!item.scrollToRight"></i>
         </div>
-        <div class="l-row__baseLine"></div>
+        <div class="l-row__baseLine" v-if="items.length!=1"></div>
       </div>
     </ef-list>
     <i class="el-icon-loading" v-if="loadingVisible"
@@ -39,7 +39,8 @@
         loadingVisible: false,
         itemCount: 0,
         tags: [],
-        curBottomItemIndex: 0
+        curBottomItemIndex: 0,
+        groupItems:[]     //当标签为1个时候显示
       }
     },
     created() {
@@ -69,6 +70,11 @@
           this.tags = res.data;
           this.itemCount = res.data.length;
         });
+
+        if(this.tags.length==1){
+          this.pushTag(this.tags[0].Id);
+          return;
+        }
         let items = [];
         let rowCount = 0;
         for (const tag of this.tags) {
@@ -95,7 +101,6 @@
         this.items = items;
       },
       async handleScrollBottom() {
-        console.log('handleScrollBottom');
         if (this.itemCount - 1 != this.curBottomItemIndex) {
           this.loadingVisible = true;
           let readyLoadItems = [];
@@ -151,7 +156,7 @@
       },
       pushTag(tagId){
         this.$router.push('/categoryPage/'+this.$route.params.categoryId+'/tag/'+tagId);
-      }
+      },
     },
     watch: {
       '$route': 'toggleCategory',

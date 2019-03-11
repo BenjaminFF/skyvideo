@@ -1,6 +1,6 @@
 {
   "name": "skyvideo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "skyvideo",
   "author": "benjaminfff <990460889@qq.com>",
   "private": true,
@@ -10,19 +10,24 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@videojs/http-streaming": "^1.9.0",
     "aes-decrypter": "^3.0.0",
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "element-ui": "^2.4.11",
     "lodash.clonedeep": "^4.5.0",
-    "m3u8-parser": "^4.2.0",
+    "m3u8-parser": "^4.3.0",
     "mpd-parser": "^0.7.0",
     "mux.js": "^5.0.1",
     "url-toolkit": "^2.1.6",
+    "video.js": "^7.4.1",
+    "videojs-contrib-hls": "^5.15.0",
     "videojs-vr": "^1.5.0",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.2",
+    "vue-video-player": "^5.0.2",
+    "vuejs-vr": "^1.0.9",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

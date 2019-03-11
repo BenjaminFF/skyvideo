@@ -5,7 +5,8 @@
 @include b(el-list){
   position: relative;
   overflow: hidden;
-  $scrollBarWidth:0.5rem;
+  $scrollBarWidth:1.5rem;
+  user-select: none;
 
   @include e(wrap){
     box-sizing: border-box;

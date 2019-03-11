@@ -23,8 +23,7 @@
          v-if="nScrollbarData.visible">
       <div class="el-list__scrollbar__thumb"
            @mousedown="thumbMouseDown($event)"
-           @mousemove="thumbMouseMove($event)"
-           :style="thumbStyle">
+           :style="thumbStyle" ref="mThumb">
       </div>
     </div>
   </div>
@@ -92,20 +91,27 @@
         },
         thumbMouseDown(event){
           this.nScrollbarData.thumbOnMove=true;
-          this.nScrollbarData.thumbPivotX=event.offsetX;
-          this.nScrollbarData.thumbPivotY=event.offsetY;
+          this.nScrollbarData.thumbPivotX=event.clientX;
+          this.nScrollbarData.thumbPivotY=event.clientY;
+          document.addEventListener('mousemove',this.thumbMouseMove,false);
+          document.addEventListener('mouseup',this.thumbMouseUp,false);
         },
         thumbMouseMove(event){
           if(this.nScrollbarData.thumbOnMove==true){
             let warp=this.$el.children[0];
             if(this.orientation=='vertical'){
-              let offsetY=event.offsetY-this.nScrollbarData.thumbPivotY;
-              warp.scrollTop+=offsetY;
+              let offsetY=event.clientY-this.nScrollbarData.thumbPivotY;
+              this.nScrollbarData.thumbPivotY=event.clientY;
+              warp.scrollTop+=offsetY*warp.scrollHeight/warp.clientHeight;
             }else if(this.orientation=='horizontal'){
               let offsetX=event.offsetX-this.nScrollbarData.thumbPivotX;
               warp.scrollLeft+=offsetX;
             }
           }
+        },
+        thumbMouseUp(event){
+          this.nScrollbarData.thumbOnMove=false;
+          document.removeEventListener('mousemove',this.thumbMouseMove);
         },
         handleTrackClick(event){
           if(event.target.className!='el-list__scrollbar__thumb'){

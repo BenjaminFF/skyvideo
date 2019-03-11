@@ -5,6 +5,7 @@ import fashionPage from '@/components/fashion-page'
 import recommendPage from '@/components/recommend-page'
 import totalPage from '@/components/total-page'
 import tagPage from '@/components/tag-page'
+import videoPage from '@/components/video-page'
 
 Vue.use(Router)
 
@@ -39,6 +40,11 @@ export default new Router({
       path:'/totalPage',
       name:'全部视频',
       component:totalPage
+    },
+    {
+      path:'/videoPage/:resId',
+      name:'videoPage',
+      component:videoPage
     }
   ]
 })
