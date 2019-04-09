@@ -65,7 +65,8 @@
         mResource: {},
         recommendResources: [],
         curResUri: '',
-        videoVisible: false
+        videoVisible: false,
+        player:{}
       }
     },
     created() {
@@ -74,8 +75,8 @@
     mounted() {
       this.$nextTick(() => {
         setTimeout(() => {
-          let player = videojs('my-video');
-          player.vr({projection: '360'});
+          this.player = videojs('my-video');
+          this.player.vr({projection: '360'});
         }, 1000);
       });
     },
